@@ -88,3 +88,23 @@ module.exports.update = (event, context, callback) => {
         }
     })
 };
+
+module.exports.delete = (event, context, callback) => {
+    context.callbackWaitsForEmptyEventLoop = false;
+    const sql = 'DELETE * FROM todos WHERE id = ?';
+    connection.query(sql, [event.pathParameters.todo], (error, result) => {
+        if (error) {
+            callback({
+                statusCode: 500,
+                body: JSON.stringify(error)
+            })
+        } else {
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify({
+                    res: 'TODO deleted succesfully'
+                })
+            })
+        }
+    })
+};

@@ -38,3 +38,9 @@ functions:
       - http:
           path: todos/{todo}
           method: put
+  delete:
+    handler: crud/todos.delete
+    events:
+      - http:
+          path: todos/{todo}
+          method: delete
