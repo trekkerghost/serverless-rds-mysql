@@ -5,7 +5,7 @@ const configDB = {
     user: 'admin',
     password: 'I0sxiOh63GS0CkEwGBGd',
     port: 3306,
-    database: 'rds-course-mysql',
+    database: 'rds_course_mysql',
     debug: true
 };
 
