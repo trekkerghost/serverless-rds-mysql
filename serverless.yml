@@ -15,15 +15,26 @@ functions:
   hello:
     handler: handler.hello
   findAll:
-    handler: crud/crud.findAll
+    handler: crud/todos.findAll
     events:
       - http:
           path: todos
           method: get
   findOne:
-      handler: crud/crud.findOne
-      events:
-        - http:
-            path: todos/{todo}
-            method: get
-
+    handler: crud/todos.findOne
+    events:
+      - http:
+          path: todos/{todo}
+          method: get
+  create:
+    handler: crud/todos.create
+    events:
+      - http:
+          path: todos
+          method: post
+  update:
+    handler: crud/todos.update
+    events:
+      - http:
+          path: todos/{todo}
+          method: put
