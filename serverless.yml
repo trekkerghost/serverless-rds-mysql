@@ -1,0 +1,29 @@
+service: serverless-rds-mysql
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  vpc:
+    securityGroupsIds:
+      - sg-todo
+    subnetIds:
+      - subnet-todo
+      - subnet-todo1
+  region: us-east-2
+
+functions:
+  hello:
+    handler: handler.hello
+  findAll:
+    handler: crud/crud.findAll
+    events:
+      - http:
+          path: todos
+          method: get
+  findOne:
+      handler: crud/crud.findOne
+      events:
+        - http:
+            path: todos/{todo}
+            method: get
+
