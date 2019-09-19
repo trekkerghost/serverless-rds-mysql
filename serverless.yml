@@ -12,8 +12,6 @@ provider:
   region: us-east-2
 
 functions:
-  hello:
-    handler: handler.hello
   findAll:
     handler: crud/todos.findAll
     events:
@@ -44,3 +42,5 @@ functions:
       - http:
           path: todos/{todo}
           method: delete
+plugins:
+  - serverless-offline

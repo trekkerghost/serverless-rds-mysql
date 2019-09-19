@@ -1,11 +1,13 @@
 const mysql = require('mysql');
 
+require('dotenv').config()
+
 const configDB = {
-    host: 'rds-mysql4.cpzd5p5qxx7p.us-east-2.rds.amazonaws.com',
-    user: 'admin',
-    password: 'I0sxiOh63GS0CkEwGBGd',
-    port: 3306,
-    database: 'rds_course_mysql',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
     debug: true
 };
 
